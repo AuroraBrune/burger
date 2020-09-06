@@ -1,5 +1,5 @@
 var mysql = require('mysql');
-
+//Connecting to mysql workbench to store our database and use the data for our page. 
 var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
