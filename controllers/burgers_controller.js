@@ -24,7 +24,8 @@ router.post("/api/burgers", function(req, res) {
         res.json({ id: result.insertID });
     });
 });
-
+//Function to move burger to devoured list on the right
+//when devoured boolean value changes to true
 router.put("/api/burgers/:id", function(req, res) {
     var condition = "id = " + req.params.id;
     console.log("condition", condition);
@@ -38,4 +39,6 @@ router.put("/api/burgers/:id", function(req, res) {
         }
     });
 });
+
+module.exports = router;
 
