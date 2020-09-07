@@ -1,4 +1,4 @@
-var orm = require("orm");
+var orm = require("../config/orm");
 
 //import orm to create functions that will interact with burbersdb
 var burger = {
