@@ -1,6 +1,21 @@
+
+
+body {
+  background-color: lightgoldenrodyellow;
+}
+
 img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 400px;
+    height: 300px;
+  }
+  #eat {
+    text-align: center;
+    font-size: 75px;
+  }
+
+  .navbar-right li a {
+    text-align: right;
   }
