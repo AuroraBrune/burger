@@ -2,32 +2,34 @@
 
 <h1 id="eat">Eat-Da-Burger!</h1>
 <div class="container">
-    <div class="row">
-        <div class="col-lg-6">
-<ul class="burgers"><h3>Burgers</h3>
-    {{#each burgers}}
-      {{#unless devoured }}
-       <li><strong>{{this.id}}  {{this.burger_name}}</strong>
-          <button class="btn-primary" type="button" class="Devour It!">Devour It!</button></li> 
-      {{/unless}}  
-    {{/each}}
-</ul>
+  <div class="row">
+    <div class="col-lg-6">
+      <ul class="burgers">
+        <h3>Burgers</h3>
+        {{#each burgers}}
+        {{#unless devoured }}
+        <li><strong>{{this.id}} {{this.burger_name}}</strong>
+          <button class="devour btn-primary" type="button" data-id={{this.id}}>Devour It!</button></li>
+        {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col-lg-6">
+      <ul class="devoured">
+        <h3>Devoured</h3>
+        {{#each burgers}}
+        {{#if devoured }}
+        <li> <strong>{{this.id}} {{this.burger_name}}</strong></li>
+        {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
 </div>
-<div class="col-lg-6">
-<ul class="devoured"><h3>Devoured</h3>
-    {{#each burgers}}
-      {{#if devoured }}
-    <li> <strong>{{this.id}}  {{this.burger_name}}</strong></li> 
-        
-      {{/if}}  
-    {{/each}}
-</ul>
-</div>
-</div>
-</div>
-
-<div class="container text-center">
-<input type="text">
-<button type="submit" class="New Burger btn-primary">Submit</button>
-<h5>Enter a Burger you want to eat and click the Submit button.</h5>
+<form class="addBurger">
+  <div class="container text-center">
+    <input type="text"   id="newBurger" >
+    <button type="submit" class="btn-primary">Submit</button>
+</form>
+<h5>Enter a Burger and click Submit.</h5>
 </div>

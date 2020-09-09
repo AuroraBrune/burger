@@ -1,4 +1,4 @@
-var orm = require("../config/orm");
+var orm = require("../config/orm.js");
 
 //import orm to create functions that will interact with burbersdb
 var burger = {
@@ -8,8 +8,8 @@ var burger = {
             cb(res);
         });
     },
-    insertOne: function(cols, vals, cb) {
-        orm.selectAll("burgers", cols, vals, function(res) {
+    create: function(cols, vals, cb) {
+        orm.create("burgers", cols, vals, function(res) {
             cb(res);
         });
     },

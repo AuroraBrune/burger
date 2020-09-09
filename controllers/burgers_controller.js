@@ -4,41 +4,37 @@ var router = express.Router();
 //import burger.js to use its database functions
 var burger = require("../models/burger");
 
-router.get("/", function(req, res) {
-    burger.selectAll(function(data) {
+router.get("/", function (req, res) {
+    burger.selectAll(function (data) {
         var hbsObject = {   //handlebars object
-            burgers: data 
+            burgers: data
         };
         console.log(hbsObject);
         res.render("index", hbsObject);
     });
 });
 
-router.post("/api/burgers", function(req, res) {
-    burger.insertOne([
-        "burger_name", "devoured"
-    ], [
-        req.body.burger_name, req.body.devoured
-    ], function(result) {
-        //send back id of new burger
+router.post("/api/burgers", function (req, res) {
+    burger.create(req.body.burger_name, function (result) {
         res.json({ id: result.insertID });
+    
     });
 });
-//Function to move burger to devoured list on the right
-//when devoured boolean value changes to true
-router.put("/api/burgers/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
-    console.log("condition", condition);
+    //Function to move burger to devoured list on the right
+    //when devoured boolean value changes to true
+    router.put("/api/burgers/:id", function (req, res) {
+        var condition = "id = " + req.params.id;
+        console.log("condition", condition);
 
-    burger.updateOne({ devoured: req.body.devoured },condition, function(result) {
-        if (result.changedRows == 0) {
-            //if no rows were changed, then the ID must not exist so error 404
-            return res.status(404).end;
-        } else {
-            res.status(200).end();
-        }
+        burger.updateOne({ devoured: req.body.devoured }, condition, function (result) {
+            if (result.changedRows == 0) {
+                //if no rows were changed, then the ID must not exist so error 404
+                return res.status(404).end;
+            } else {
+                res.status(200).end();
+            }
+        });
     });
-});
 
-module.exports = router;
+    module.exports = router;
 

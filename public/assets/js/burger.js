@@ -1,10 +1,9 @@
 $(function () {
-    $(".create-form").on("submit", function (event) {
+    $(".addBurger").on("submit", function (event) {
         event.preventDefault();
 
         var newBurger = {
             burger_name: $("#newBurger").val().trim(),
-            devoured: 0
         };
 
         $.ajax("/api/burgers", {
@@ -18,11 +17,11 @@ $(function () {
             }
         );
     });
-    $(".eatburger").on("click", function (event) {
+    $(".devour").on("click", function (event) {
         event.preventDefault();
         var id = $(this).data("id");
         var devouredState = {
-            devoured: 1
+            devoured: true
         }
 
         $.ajax("/api/burgers" + id, {
