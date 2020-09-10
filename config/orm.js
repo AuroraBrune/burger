@@ -38,39 +38,30 @@ function objToSql(ob) {
 
 // Object for all our SQL statement functions.
 var orm = {
-  selectAll: function(table, cb) {
+  selectAll: function (table, cb) {
     var queryString = "SELECT * FROM " + table + ";";
-    connection.query(queryString, function(err, result) {
+    connection.query(queryString, function (err, result) {
       if (err) {
         throw err;
       }
       cb(result);
     });
   },
-  create: function(table, cols, vals, cb) {
-    var queryString = "INSERT INTO " + table;
+  create: function (vals, cb) {
+    var queryString = "INSERT INTO burgers (burger_name, devoured) VALUES ( ?, ?)"
+    console.log("VALUES ", vals);
 
-    queryString += " (";
-    queryString += cols.toString();
-    queryString += ") ";
-    queryString += "VALUES (";
-    queryString += printQuestionMarks(vals.length);
-    queryString += ") ";
-
-    
-
-    connection.query(queryString, vals, function(err, result) {
+    connection.query(queryString, [vals.burger_name, parseInt(vals.devoured)], function (err, result) {
       if (err) {
         throw err;
       }
-
       cb(result);
-     
+
     });
-    console.log(queryString);
+
   },
   // An example of objColVals would be {burger_name: burger devoured: true}
-  updateOne: function(table, objColVals, condition, cb) {
+  updateOne: function (table, objColVals, condition, cb) {
     var queryString = "UPDATE " + table;
 
     queryString += " SET ";
@@ -78,8 +69,8 @@ var orm = {
     queryString += " WHERE ";
     queryString += condition;
 
-    console.log(queryString);
-    connection.query(queryString, function(err, result) {
+
+    connection.query(queryString, function (err, result) {
       if (err) {
         throw err;
       }
