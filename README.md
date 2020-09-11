@@ -60,7 +60,16 @@ All the recommended files and directories from the steps above should look like 
 
 * Please submit both the deployed Heroku link to your homework AND the link to the Github Repository!
 
+https://still-chamber-70801.herokuapp.com/
+
 - - -
+Screenshots
 
-
- 
+ ![BurgersPage](public/assets/img/burgerWeek13-1.jpg)
+ --
+ ![BurgersPage](public/assets/img/burgersDevoured.jpg)
+ --
+ On Portfolio
+ -
+ ![BurgersOnPortfolio](public/assets/img/BurgersOnPortfolio.jpg)
+ file:///C:/Users/AndBrune/aSchoolworkRepos/homework-repos/responsive_portfolio_homework/responsive_portfolio_homework/portfolio.html
