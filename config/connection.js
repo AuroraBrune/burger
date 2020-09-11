@@ -1,18 +1,14 @@
 var mysql = require('mysql');
 //Connecting to mysql workbench to store our database and use the data for our page. 
+require('dotenv').config();
 var connection;
 
-if ( process.env.JAWSDB_URL) {
-  connection = mysql.createConnection(process.env.JAWSDB_URL);
-} else {
   connection = mysql.createConnection( {
     host: 'localhost',
     user: 'root',
-    password: "",
+    password: process.env.PASSWORD,
     database: "burgers_db"
   });
-}
-
 
 connection.connect(function(err) {
     if (err) {

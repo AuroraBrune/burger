@@ -1,7 +1,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 var mysql = require('mysql');
-require('dotenv').config();
+
 
 var PORT = process.env.PORT || 8080;
 
