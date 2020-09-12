@@ -5,6 +5,7 @@
   <div class="row">
     <div class="col-lg-6">
       <ul class="burgers">
+        <!--the list for the undevoured burgers on the left column-->
         <h3>Burgers</h3>
         {{#each burgers}}
         {{#unless devoured }}
@@ -16,6 +17,7 @@
     </div>
     <div class="col-lg-6">
       <ul class="devoured">
+        <!--list for the devoured burgers on the right side of the page-->
         <h3>Devoured</h3>
         {{#each burgers}}
         {{#if devoured }}
@@ -26,9 +28,10 @@
     </div>
   </div>
 </div>
+<!--the input container for new burgers to be added with submit button-->
 <form class="create-form">
   <div class="container text-center">
-    <input type="text"   id="newBurger" >
+    <input type="text" id="newBurger">
     <button type="submit" class="btn-primary">Submit</button>
 </form>
 <h5>Enter a Burger and click Submit.</h5>

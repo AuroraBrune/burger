@@ -2,7 +2,7 @@
 var connection = require("../config/connection.js");
 
 // Helper function for SQL syntax.
-// In below helper function loops through and creates an array of question marks 
+// function loops through and creates an array of question marks 
 function printQuestionMarks(num) {
   var arr = [];
 
@@ -26,13 +26,9 @@ function objToSql(ob) {
       if (typeof value === "string" && value.indexOf(" ") >= 0) {
         value = "'" + value + "'";
       }
-      // e.g. {burger_name: 'Salsa Burger'} => ["burger_name='Salsa Burger'"]
-      // e.g. {devoured: true} => ["devoured=true"]
       arr.push(key + "=" + value);
     }
   }
-
-  // translate array of strings to a single comma-separated string
   return arr.toString();
 }
 
@@ -68,7 +64,6 @@ var orm = {
     queryString += objToSql(objColVals);
     queryString += " WHERE ";
     queryString += condition;
-
 
     connection.query(queryString, function (err, result) {
       if (err) {
