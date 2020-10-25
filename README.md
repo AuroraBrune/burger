@@ -72,4 +72,4 @@ Screenshots
  On Portfolio
  -
  ![BurgersOnPortfolio](public/assets/img/BurgersOnPortfolio.jpg)
- file:///C:/Users/AndBrune/aSchoolworkRepos/homework-repos/responsive_portfolio_homework/responsive_portfolio_homework/portfolio.html
+ 
